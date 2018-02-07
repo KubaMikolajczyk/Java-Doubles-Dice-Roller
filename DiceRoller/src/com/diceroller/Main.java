@@ -3,6 +3,7 @@ package com.diceroller;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	    Application newApp = new Application();
+	    newApp.startApp();
     }
 }
