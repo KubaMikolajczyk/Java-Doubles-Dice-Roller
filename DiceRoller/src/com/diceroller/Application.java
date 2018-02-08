@@ -7,8 +7,15 @@ import java.util.Scanner;
  */
 
 public class Application {
+    private View view = new View();
+
 
     public void startApp(){
+        view.welcomeMessage();
+        mainMenuLoop();
+    }
+
+    private void mainMenuLoop(){
         boolean is_running = true;
         Scanner input = new Scanner(System.in);
 
@@ -16,30 +23,26 @@ public class Application {
         int diceRolls;
 
         while(is_running){
-
+            view.mainMenuDisplay();
             int userMenuChoice = input.nextInt();
+
             switch(userMenuChoice){
                 case 1:
-                    System.out.println("Roll two dices");
                     diceRolls = dices.howManyTimes();
                     dices.rollTwoDices(diceRolls);
                     break;
                 case 2:
-                    System.out.println("Roll three dices");
                     diceRolls = dices.howManyTimes();
                     dices.rollThreeDices(diceRolls);
                     break;
                 case 3:
-                    System.out.println("Count average doubles in rolls");
                     dices.countAverage();
                     break;
                 case 4:
-                    System.out.println("Exit");
                     is_running = false;
                     break;
 
                     default:
-                        System.out.println("Please choose on of options listed above");
                         break;
 
             }

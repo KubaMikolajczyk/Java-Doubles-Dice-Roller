@@ -11,6 +11,7 @@ public class Dices {
     private int totalCountDoubles;
     private Scanner input = new Scanner(System.in);
     private Random random = new Random();
+    private View view = new View();
 
     public void rollTwoDices(int diceRolls){
         int countDoubles = 0;
@@ -25,7 +26,7 @@ public class Dices {
                 totalCountDoubles++;
             }
         }
-        System.out.println("With " + diceRolls + " rolls, you got " + countDoubles + " doubles.");
+        view.doublesDisplay(diceRolls,countDoubles);
     }
 
     public void rollThreeDices(int diceRolls){
@@ -42,20 +43,18 @@ public class Dices {
                 totalCountDoubles++;
             }
         }
-        System.out.println("With " + diceRolls + " rolls, you got " + countDoubles + " doubles.");
+        view.doublesDisplay(diceRolls,countDoubles);
     }
 
     public void countAverage(){
         totalCountDoubles = 0;
 
-        System.out.println("Please enter how many times to repeat the test: ");
+        view.testRepetitionDisplay();
         int testRepetition = input.nextInt();
 
-        System.out.println("\nPlease choose one of option below: " +
-                            "\n1. Roll with two dices" +
-                            "\n2. Roll with three dices");
-
+        view.userChoiceDisplay();
         int userOptionChoice = input.nextInt();
+
         int diceRolls = howManyTimes();
         switch(userOptionChoice){
             case 1:
@@ -69,13 +68,12 @@ public class Dices {
                 }
         }
         float avgDoubles = (totalCountDoubles/testRepetition);
-        System.out.println("On average during " + testRepetition + " tries. We got " + avgDoubles + " doubles.");
+        view.avgDoublesDisplay(testRepetition,avgDoubles);
     }
 
     public int howManyTimes(){
-        System.out.println("How many times do you want to roll dices? : ");
+        view.rollTimesDisplay();
         int timesRoll = input.nextInt();
-        System.out.println(timesRoll);
         return timesRoll;
     }
 }
