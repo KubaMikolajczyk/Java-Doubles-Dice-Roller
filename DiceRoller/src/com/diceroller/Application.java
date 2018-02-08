@@ -11,14 +11,15 @@ public class Application {
     public void startApp(){
         boolean is_running = true;
         Scanner input = new Scanner(System.in);
+        Dices dices = new Dices();
 
         while(is_running){
-            System.out.println("Please choose option from listed below: ");
 
             int userMenuChoice = input.nextInt();
             switch(userMenuChoice){
                 case 1:
-                    System.out.println("Roll dices");
+                    System.out.println("Roll two dices");
+                    dices.rollTwoDices();
                     break;
                 case 2:
                     System.out.println("Triples");
@@ -33,6 +34,8 @@ public class Application {
                         break;
 
             }
-            }
         }
     }
+}
+
+
