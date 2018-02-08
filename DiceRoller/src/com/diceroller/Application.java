@@ -22,7 +22,8 @@ public class Application {
                     dices.rollTwoDices();
                     break;
                 case 2:
-                    System.out.println("Triples");
+                    System.out.println("Roll three dices");
+                    dices.rollThreeDices();
                     break;
                 case 3:
                     System.out.println("Exit");
