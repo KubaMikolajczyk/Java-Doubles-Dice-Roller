@@ -11,7 +11,9 @@ public class Application {
     public void startApp(){
         boolean is_running = true;
         Scanner input = new Scanner(System.in);
+
         Dices dices = new Dices();
+        int diceRolls;
 
         while(is_running){
 
@@ -19,13 +21,19 @@ public class Application {
             switch(userMenuChoice){
                 case 1:
                     System.out.println("Roll two dices");
-                    dices.rollTwoDices();
+                    diceRolls = dices.howManyTimes();
+                    dices.rollTwoDices(diceRolls);
                     break;
                 case 2:
                     System.out.println("Roll three dices");
-                    dices.rollThreeDices();
+                    diceRolls = dices.howManyTimes();
+                    dices.rollThreeDices(diceRolls);
                     break;
                 case 3:
+                    System.out.println("Count average doubles in rolls");
+                    dices.countAverage();
+                    break;
+                case 4:
                     System.out.println("Exit");
                     is_running = false;
                     break;
